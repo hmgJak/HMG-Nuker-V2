@@ -5,7 +5,7 @@ import colorama
 from colorama import Fore, Back, Style, init
 init()
 
-TOKEN = "MTA5MTc3NDk0NTE3Mzk2Mjg0Mg.Gnf0Al.q9_KvYX5sOV3OXDCQfvF4_JonCOxyZA0uJmGz4"
+TOKEN = input("token:")
 channel = "heil-hmg"
 spam = ["""
 ```Nuked By His Majesty's Guard [ĦМ₲]```
