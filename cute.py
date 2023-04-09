@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import random
 import colorama
+import requests
 from colorama import Fore, Back, Style, init
 init()
 
